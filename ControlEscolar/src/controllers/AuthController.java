@@ -16,9 +16,6 @@ package controllers;
  		vista.login();
  	}
  	
- 	public void register() {
- 		
- 		vista.register();
- 	}
+ 	
  
  }
