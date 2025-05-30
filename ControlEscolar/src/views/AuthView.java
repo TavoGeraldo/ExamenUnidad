@@ -46,33 +46,42 @@ public class AuthView {
         panel1.setOpaque(true);
         panel1.setSize(930, 600);
         panel1.setLocation(500, 0);
-        panel1.setBackground(Color.decode("#f5ebe0")); 
+        panel1.setBackground(Color.WHITE); 
         panel1.setLayout(null);
+        
+        JLabel lblimagen = new JLabel();
+        
+		ImageIcon iconoAlumnos = new ImageIcon(getClass().getResource("/files/logo.png"));
+		Image imagenEscalada5 = iconoAlumnos.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+		ImageIcon iconoEscalado = new ImageIcon(imagenEscalada5);
+		lblimagen.setIcon(iconoEscalado);
+		lblimagen.setBounds(400, 50, 90, 90);
+		panel1.add(lblimagen);
 
         JLabel etiqueta1 = new JLabel("Nombre de usuario:");
         etiqueta1.setSize(150, 30);
-        etiqueta1.setLocation(320, 80);
+        etiqueta1.setLocation(320, 170);
         etiqueta1.setForeground(Color.DARK_GRAY); 
-        etiqueta1.setFont(new Font("Georgia", Font.BOLD, 14));
+        etiqueta1.setFont(new Font("Roboto", Font.BOLD, 14));
         panel1.add(etiqueta1);
         
         JTextField usuario = new JTextField();
         usuario.setSize(270, 30);
-        usuario.setLocation(320, 110);
+        usuario.setLocation(320, 200);
         usuario.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         usuario.setBackground(Color.WHITE);
         panel1.add(usuario);
 
         JLabel etiqueta2 = new JLabel("Contraseña:");
         etiqueta2.setSize(150, 30);
-        etiqueta2.setLocation(320, 160);
+        etiqueta2.setLocation(320, 240);
         etiqueta2.setForeground(Color.DARK_GRAY); 
-        etiqueta2.setFont(new Font("Georgia", Font.BOLD, 14));
+        etiqueta2.setFont(new Font("Roboto", Font.BOLD, 14));
         panel1.add(etiqueta2);
         
         JPasswordField contrasena = new JPasswordField();
         contrasena.setSize(270, 30);
-        contrasena.setLocation(320, 190);
+        contrasena.setLocation(320, 270);
         contrasena.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         contrasena.setBackground(Color.WHITE);
         panel1.add(contrasena);
@@ -81,7 +90,7 @@ public class AuthView {
         ImageIcon iconUsuario = new ImageIcon(getClass().getResource("/files/usuario.png"));
         Image imagenEscalada = iconUsuario.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         JLabel imagen = new JLabel(new ImageIcon(imagenEscalada));
-        imagen.setBounds(270, 110, 50, 30); 
+        imagen.setBounds(270, 200, 50, 30); 
         panel1.add(imagen);
         
         
@@ -89,14 +98,14 @@ public class AuthView {
         ImageIcon iconCandado = new ImageIcon(getClass().getResource("/files/candado.png"));
         Image imagenEscalada2 = iconCandado.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         JLabel imagen2 = new JLabel(new ImageIcon(imagenEscalada2));
-        imagen2.setBounds(270, 190, 50, 30); 
+        imagen2.setBounds(270, 270, 50, 30); 
         panel1.add(imagen2);
 
         
 
        
         JButton boton = new JButton("Acceder");
-        boton.setBounds(370, 270, 170, 50);
+        boton.setBounds(360, 340, 170, 50);
         boton.setFont(new Font("Arial", Font.BOLD, 18));
         boton.setBackground(Color.decode("#2ECC71")); 
         boton.setForeground(Color.WHITE);

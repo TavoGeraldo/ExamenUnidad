@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -45,16 +47,16 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.decode("#fefae0"));
+		panel.setBackground(Color.decode("#F4F6F7"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
 		
 		JLabel lblNewLabel = new JLabel("Docentes");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 24));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		lblNewLabel.setFont(new Font("Kefa", Font.BOLD, 24));
+		lblNewLabel.setBounds(100, 60, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.LEFT);
 		panel.add(lblNewLabel);
 		
 		
@@ -65,7 +67,30 @@ public class DocenteView {
         Object[][] datos = {
             {"1", "Carlos Pérez", "Matemáticas", "cperez@escuela.edu"},
             {"2", "Laura Gómez", "Física", "lgomez@escuela.edu"},
-            {"3", "José Martínez", "Química", "jmartinez@escuela.edu"}
+            {"3", "José Martínez", "Química", "jmartinez@escuela.edu"},
+            {"4", "Ana Torres", "Biología", "atorres@escuela.edu"},
+            {"5", "Luis Ramírez", "Historia", "lramirez@escuela.edu"},
+            {"6", "María López", "Geografía", "mlopez@escuela.edu"},
+            {"7", "Jorge Sánchez", "Educación Física", "jsanchez@escuela.edu"},
+            {"8", "Paola Herrera", "Matemáticas", "pherrera@escuela.edu"},
+            {"9", "Fernando Díaz", "Física", "fdiaz@escuela.edu"},
+            {"10", "Andrea Navarro", "Química", "anavarro@escuela.edu"},
+            {"11", "Ricardo Molina", "Biología", "rmolina@escuela.edu"},
+            {"12", "Natalia Cruz", "Historia", "ncruz@escuela.edu"},
+            {"13", "Emilio Vega", "Geografía", "evega@escuela.edu"},
+            {"14", "Daniela Ríos", "Matemáticas", "drios@escuela.edu"},
+            {"15", "Óscar Morales", "Física", "omorales@escuela.edu"},
+            {"16", "Julia Castillo", "Química", "jcastillo@escuela.edu"},
+            {"17", "Iván Aguirre", "Biología", "iaguirre@escuela.edu"},
+            {"18", "Camila Paredes", "Historia", "cparedes@escuela.edu"},
+            {"19", "Sergio Salas", "Geografía", "ssalas@escuela.edu"},
+            {"20", "Lucía Robles", "Educación Física", "lrobles@escuela.edu"},
+            {"21", "Manuel Ortega", "Matemáticas", "mortega@escuela.edu"},
+            {"22", "Vanessa Flores", "Física", "vflores@escuela.edu"},
+            {"23", "Hugo Castaño", "Química", "hcastano@escuela.edu"},
+            {"24", "Carla Méndez", "Biología", "cmendez@escuela.edu"},
+            {"25", "Alonso Reyes", "Historia", "areyes@escuela.edu"}
+
         };
 
 
@@ -101,9 +126,37 @@ public class DocenteView {
 
         panel.add(scrollPane, BorderLayout.CENTER);
         
-        JButton btnCrear = new JButton("Crear");
+        
+        //boton de crear
+        JLabel lblCrear = new JLabel("Nuevo docente");
+        lblCrear.setBounds(210, 460, 140, 20);
+        lblCrear.setForeground(Color.DARK_GRAY);
+        lblCrear.setVisible(false); 
+        panel.add(lblCrear);
+        
+        JButton btnCrear = new JButton();
         btnCrear.setBounds(200, 420, 100, 40);
         btnCrear.setFocusPainted(false);
+        btnCrear.setBackground(Color.decode("#28a745")); 
+
+        btnCrear.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lblCrear.setVisible(true);
+                panel.repaint(); 
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblCrear.setVisible(false);
+            }
+
+		});
+        
+        ImageIcon iconoCrear = new ImageIcon(getClass().getResource("/files/agregar.png"));
+        Image imagenCrear = iconoCrear.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon icon = new ImageIcon(imagenCrear);
+        btnCrear.setIcon(icon);
         
         btnCrear.addActionListener(new ActionListener() {
 			
@@ -118,9 +171,38 @@ public class DocenteView {
         
         panel.add(btnCrear);
 
-        JButton btnEditar = new JButton("Editar");
+        
+        //boton de editar
+        JLabel lbleditar = new JLabel("Editar docente");
+        lbleditar.setBounds(330, 460, 140, 20);
+        lbleditar.setForeground(Color.DARK_GRAY);
+        lbleditar.setVisible(false); 
+        panel.add(lbleditar);
+        
+        JButton btnEditar = new JButton();
         btnEditar.setBounds(320, 420, 100, 40);
         btnEditar.setFocusPainted(false);
+        btnEditar.setBackground(Color.decode("#007bff")); 
+
+        btnEditar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lbleditar.setVisible(true);
+                panel.repaint(); 
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lbleditar.setVisible(false);
+            }
+
+		});
+        
+        ImageIcon iconoEditar = new ImageIcon(getClass().getResource("/files/editar.png"));
+        Image imagenEditar = iconoEditar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon icon2 = new ImageIcon(imagenEditar);
+        btnEditar.setIcon(icon2);
+        
         btnEditar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -134,9 +216,38 @@ public class DocenteView {
 		});
         panel.add(btnEditar);
 
-        JButton btnConsultar = new JButton("Consultar");
+        
+        //boton de consultar
+        JLabel lblConsultar = new JLabel("Consultar");
+        lblConsultar.setBounds(463, 460, 140, 20);
+        lblConsultar.setForeground(Color.DARK_GRAY);
+        lblConsultar.setVisible(false); 
+        panel.add(lblConsultar);
+        
+        JButton btnConsultar = new JButton();
         btnConsultar.setBounds(440, 420, 100, 40);
         btnConsultar.setFocusPainted(false);
+        btnConsultar.setBackground(Color.decode("#A7C7E7")); 
+
+        btnConsultar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lblConsultar.setVisible(true);
+                panel.repaint(); 
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblConsultar.setVisible(false);
+            }
+
+		});
+        
+        ImageIcon iconoConsultar = new ImageIcon(getClass().getResource("/files/busqueda.png"));
+        Image imagenConsulta = iconoConsultar.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon icon3 = new ImageIcon(imagenConsulta);
+        btnConsultar.setIcon(icon3);
+        
         btnConsultar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -149,9 +260,38 @@ public class DocenteView {
 		});
         panel.add(btnConsultar);
         
-        JButton btnEliminar = new JButton("Eliminar");
+        
+        //boton de eliminar
+        JLabel lblEliminar = new JLabel("Eliminar");
+        lblEliminar.setBounds(590, 460, 140, 20);
+        lblEliminar.setForeground(Color.DARK_GRAY);
+        lblEliminar.setVisible(false); 
+        panel.add(lblEliminar);
+        
+        JButton btnEliminar = new JButton();
         btnEliminar.setBounds(560, 420, 100, 40);
         btnEliminar.setFocusPainted(false);
+        btnEliminar.setBackground(Color.RED); 
+
+        btnEliminar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lblEliminar.setVisible(true);
+                panel.repaint(); 
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblEliminar.setVisible(false);
+            }
+
+		});
+
+        ImageIcon iconoDocente = new ImageIcon(getClass().getResource("/files/borrar.png"));
+        Image imagenEscalada2 = iconoDocente.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        ImageIcon iconoEscalado2 = new ImageIcon(imagenEscalada2);
+        btnEliminar.setIcon(iconoEscalado2);
+        
         btnEliminar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -177,7 +317,7 @@ public class DocenteView {
         panel.add(btnEliminar);
 
 		
-		
+		//boton para regresar
 		JButton btnRegresar = new JButton();
 		btnRegresar.setBounds(20, 20, 50, 50);
 		ImageIcon iconoRegresar = new ImageIcon(getClass().getResource("/files/regresar.png"));
@@ -201,6 +341,7 @@ public class DocenteView {
 		
 		panel.add(btnRegresar);
 		
+		//boton para el logout
 		JButton btnCerarSesion = new JButton();
 		btnCerarSesion.setBounds(850, 20, 50, 50);
 		ImageIcon iconoCerrarSesion = new ImageIcon(getClass().getResource("/files/logout.png"));
@@ -246,15 +387,15 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.decode("#fefae0"));
+		panel.setBackground(Color.decode("#F4F6F7"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
 		
-		JLabel lblNewLabel = new JLabel("Crear Docente");
+		JLabel lblNewLabel = new JLabel("Dar de alta docente");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 24));
-		lblNewLabel.setBounds(250, 35, 210, 26);
+		lblNewLabel.setBounds(250, 35, 230, 26);
 		lblNewLabel.setHorizontalAlignment(JLabel.LEFT);
 		panel.add(lblNewLabel);
 
@@ -451,7 +592,7 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.decode("#fefae0"));
+		panel.setBackground(Color.decode("#F4F6F7"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
@@ -656,7 +797,7 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.decode("#fefae0"));
+		panel.setBackground(Color.decode("#F4F6F7"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
@@ -738,6 +879,48 @@ public class DocenteView {
         txtMateria.setEditable(false);
         panel.add(txtMateria);
         
+        
+        JLabel lblDescargar = new JLabel("Descargar información");
+        lblDescargar.setBounds(675, 465, 140, 20);
+        lblDescargar.setForeground(Color.DARK_GRAY);
+        lblDescargar.setVisible(false); 
+        panel.add(lblDescargar);
+        
+        JButton btnDescargar = new JButton();
+        btnDescargar.setBounds(680, 420, 120, 40);
+        btnDescargar.setFocusPainted(false);
+        btnDescargar.setBackground(Color.decode("#007bff")); 
+
+        btnDescargar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblDescargar.setVisible(true);
+                panel.repaint(); 
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblDescargar.setVisible(false);
+            }
+
+		});
+        
+        ImageIcon iconoDescargar = new ImageIcon(getClass().getResource("/files/descarga.png"));
+        Image imgEscalada = iconoDescargar.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+        btnDescargar.setIcon(new ImageIcon(imgEscalada));
+        btnDescargar.setIconTextGap(10);
+
+        btnDescargar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(ventana, "Información descargada exitosamente.", "Descarga", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        panel.add(btnDescargar);
+        
+        
+        //imagen que simula al maestro
         ImageIcon imagenMaestro = new ImageIcon(getClass().getResource("/files/maestroImagen.png"));
         Image imagenEscalada2 = imagenMaestro.getImage().getScaledInstance(160, 160, Image.SCALE_SMOOTH);
         JLabel imagen2 = new JLabel(new ImageIcon(imagenEscalada2));
