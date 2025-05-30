@@ -46,13 +46,13 @@ public class AuthView {
         panel1.setOpaque(true);
         panel1.setSize(930, 600);
         panel1.setLocation(500, 0);
-        panel1.setBackground(Color.decode("#59a5d8")); 
+        panel1.setBackground(Color.decode("#f5ebe0")); 
         panel1.setLayout(null);
 
         JLabel etiqueta1 = new JLabel("Nombre de usuario:");
         etiqueta1.setSize(150, 30);
         etiqueta1.setLocation(320, 80);
-        etiqueta1.setForeground(Color.WHITE); 
+        etiqueta1.setForeground(Color.DARK_GRAY); 
         etiqueta1.setFont(new Font("Georgia", Font.BOLD, 14));
         panel1.add(etiqueta1);
         
@@ -66,7 +66,7 @@ public class AuthView {
         JLabel etiqueta2 = new JLabel("Contraseña:");
         etiqueta2.setSize(150, 30);
         etiqueta2.setLocation(320, 160);
-        etiqueta2.setForeground(Color.WHITE); 
+        etiqueta2.setForeground(Color.DARK_GRAY); 
         etiqueta2.setFont(new Font("Georgia", Font.BOLD, 14));
         panel1.add(etiqueta2);
         
@@ -92,13 +92,13 @@ public class AuthView {
         imagen2.setBounds(270, 190, 50, 30); 
         panel1.add(imagen2);
 
-
+        
 
        
         JButton boton = new JButton("Acceder");
         boton.setBounds(370, 270, 170, 50);
         boton.setFont(new Font("Arial", Font.BOLD, 18));
-        boton.setBackground(new Color(40, 167, 69)); 
+        boton.setBackground(Color.decode("#2ECC71")); 
         boton.setForeground(Color.WHITE);
         boton.setFocusPainted(false);
         

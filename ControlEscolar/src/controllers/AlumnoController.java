@@ -16,4 +16,16 @@ public class AlumnoController {
 	{
 		vista.alumno();
 	}
+	public void CrearAlumno()
+	{
+		vista.CrearAlumno();
+	}
+	public void EditarAlumno()
+	{
+		vista.EditarAlumno();
+	}
+	public void ConsultarAlumno()
+	{
+		vista.ConsultarAlumno();
+	}
 }

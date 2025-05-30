@@ -41,7 +41,7 @@ public class HomeView {
 		ventana.setResizable(true);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.decode("#fefae0"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
@@ -54,7 +54,7 @@ public class HomeView {
 		panel.add(lblNewLabel);
 
 		JButton btnNewButton2 = new JButton("Alumnos");
-		btnNewButton2.setBackground(Color.GRAY);
+		btnNewButton2.setBackground(Color.decode("#A29B93"));
 		btnNewButton2.setOpaque(true);
 		btnNewButton2.setForeground(new Color(0, 0, 0));
 		btnNewButton2.setBounds(205, 190, 200, 200);
@@ -84,7 +84,7 @@ public class HomeView {
 		panel.add(btnNewButton2);
 
 		JButton btnNewButton3 = new JButton("Docentes");
-		btnNewButton3.setBackground(Color.GRAY);
+		btnNewButton3.setBackground(Color.decode("#A29B93"));
 		btnNewButton3.setOpaque(true);
 		btnNewButton3.setForeground(new Color(0, 0, 0));
 		btnNewButton3.setBounds(505, 190, 200, 200);

@@ -2,6 +2,7 @@ package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -17,7 +18,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import controllers.AuthController;
 import controllers.DocenteController;
@@ -40,7 +45,7 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.decode("#fefae0"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
@@ -72,7 +77,24 @@ public class DocenteView {
 
         };
         tablaDocentes = new JTable(modelo);
+        
+        DefaultTableCellRenderer centrado = new DefaultTableCellRenderer();
+        centrado.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int i = 0; i < tablaDocentes.getColumnCount(); i++) {
+            tablaDocentes.getColumnModel().getColumn(i).setCellRenderer(centrado);
+        }
+        
+        tablaDocentes.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        tablaDocentes.setRowHeight(25);
+        
+        JTableHeader header = tablaDocentes.getTableHeader();
+        header.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        header.setBackground(Color.DARK_GRAY);
+        header.setForeground(Color.WHITE);
+        
 
+        tablaDocentes.setIntercellSpacing(new Dimension(0, 0));
+        tablaDocentes.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
         JScrollPane scrollPane = new JScrollPane(tablaDocentes);
         scrollPane.setBounds(100, 100, 700, 300); 
@@ -224,12 +246,17 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.decode("#fefae0"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
 		
-		
+		JLabel lblNewLabel = new JLabel("Crear Docente");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 24));
+		lblNewLabel.setBounds(250, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.LEFT);
+		panel.add(lblNewLabel);
 
         JLabel lblNombres = new JLabel("Nombres:");
         lblNombres.setBounds(250, 90, 150, 25);
@@ -424,12 +451,17 @@ public class DocenteView {
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.decode("#fefae0"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
 		
-		
+		JLabel lblNewLabel = new JLabel("Editar Docente");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 24));
+		lblNewLabel.setBounds(250, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.LEFT);
+		panel.add(lblNewLabel);
 
         JLabel lblNombres = new JLabel("Nombres:");
         lblNombres.setBounds(250, 90, 150, 25);
@@ -619,16 +651,22 @@ public class DocenteView {
 		ventana.setVisible(true);
 		ventana.setSize(930, 600);
 		ventana.setLocationRelativeTo(null); 
-		ventana.setTitle("Editar"); 
+		ventana.setTitle("Informacion"); 
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		ventana.setResizable(true);  
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.decode("#fefae0"));
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
 		panel.setSize(1000, 600);
 		
+		JLabel lblNewLabel = new JLabel("Información del docente");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 24));
+		lblNewLabel.setBounds(190, 35, 290, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.LEFT);
+		panel.add(lblNewLabel);
 		
 		int x = 190;
 		int x2 = 350;
@@ -638,6 +676,7 @@ public class DocenteView {
 
         JTextField txtNombres = new JTextField("Carlos");
         txtNombres.setBounds(x2, 90, 250, 25);
+        txtNombres.setEditable(false);
         panel.add(txtNombres);
 
 
@@ -647,6 +686,7 @@ public class DocenteView {
 
         JTextField txtApellidos = new JTextField("Pérez Gómez");
         txtApellidos.setBounds(x2, 130, 250, 25);
+        txtApellidos.setEditable(false);
         panel.add(txtApellidos);
 
 
@@ -656,6 +696,7 @@ public class DocenteView {
 
         JTextField txtFecha = new JTextField("15/04/1980");
         txtFecha.setBounds(440, 170, 160, 25);
+        txtFecha.setEditable(false);
         panel.add(txtFecha);
 
 
@@ -665,6 +706,7 @@ public class DocenteView {
 
         JTextField txtCorreo = new JTextField("carlos.perez@escuela.edu");
         txtCorreo.setBounds(x2, 210, 250, 25);
+        txtCorreo.setEditable(false);
         panel.add(txtCorreo);
 
 
@@ -674,6 +716,7 @@ public class DocenteView {
 
         JTextField txtTelefono = new JTextField("6123456789");
         txtTelefono.setBounds(x2, 250, 250, 25);
+        txtTelefono.setEditable(false);
         panel.add(txtTelefono);
 
 
@@ -683,6 +726,7 @@ public class DocenteView {
 
         JTextField txtGrado = new JTextField("Maestría en Física");
         txtGrado.setBounds(x2, 290, 250, 25);
+        txtGrado.setEditable(false);
         panel.add(txtGrado);
         
         JLabel lblMateria = new JLabel("Materia a impartir:");
@@ -691,12 +735,14 @@ public class DocenteView {
         
         JTextField txtMateria = new JTextField("Matemáticas");
         txtMateria.setBounds(x2, 330, 250, 25);
+        txtMateria.setEditable(false);
         panel.add(txtMateria);
         
         ImageIcon imagenMaestro = new ImageIcon(getClass().getResource("/files/maestroImagen.png"));
         Image imagenEscalada2 = imagenMaestro.getImage().getScaledInstance(160, 160, Image.SCALE_SMOOTH);
         JLabel imagen2 = new JLabel(new ImageIcon(imagenEscalada2));
         imagen2.setBounds(680, 90, 160, 160); 
+        imagen2.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         panel.add(imagen2);
        
        
